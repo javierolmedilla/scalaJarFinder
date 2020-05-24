@@ -17,10 +17,14 @@ object jarFinder  extends App {
 
 
   val okFileExtensions = List("jar")
-  val path = "."
+  //val path = "."
 
-  if (args == null || args.size == 0) System.exit(1)
-  val cadena : String = args(0)
+  if (args == null || args.size < 2) {
+    System.out.println("Uso: scalaJarFinder <directorio> <patron de busqueda>");
+    System.exit(0)
+  }
+  val path : String = args(0)
+  val cadena : String = args(1)
   Console.println("Vamos a buscar esto: " + cadena)
   val patternEntrada = Pattern.compile("^(.+)" + cadena + "(.+)$")
 
